@@ -15,12 +15,20 @@ class SourcesStore extends EventEmitter {
 
 export const getSources = () => this.sources;
 
+const handleActions = (action) => {
+  if (action.type === 'VIEW_SOURCES') {
+    this.sources = action.sources;
+    this.emit('viewsources');
+  }
+};
 
 const sourcesStore = new SourcesStore;
 
-export default SourcesStore;
+dispatcher.register();
 
 /* axios.get('https://newsapi.org/v1/sources?language=en')
       .then((response) => {
         console.log(response);
       }); */
+
+export default SourcesStore;
