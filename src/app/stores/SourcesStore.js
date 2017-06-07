@@ -2,6 +2,7 @@
 /* eslint-env es6*/
 
 import { EventEmitter } from 'events';
+import dispatcher from '../dispatcher/Dispatcher';
 // import axios from 'axios';
 
 class SourcesStore extends EventEmitter {
