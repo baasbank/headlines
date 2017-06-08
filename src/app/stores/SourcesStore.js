@@ -26,7 +26,7 @@ const handleActions = (action) => {
 
 const sourcesStore = new SourcesStore;
 
-dispatcher.register();
+dispatcher.register(sourcesStore.handleActions.bind(sourcesStore));
 
 /* axios.get('https://newsapi.org/v1/sources?language=en')
       .then((response) => {
