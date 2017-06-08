@@ -8,7 +8,8 @@ class SourcesStore extends EventEmitter {
   constructor() {
     super();
     this.sources = axios.get('https://newsapi.org/v1/sources?language=en')
-      .then((response) => {
+      .then((response) => {return
+        response.data.sources;
         console.log(response);
       });
   }
