@@ -2,19 +2,35 @@
 /* eslint-env es6*/
 
 import { EventEmitter } from 'events';
-import axios from 'axios';
+import dispatcher from '../dispatcher/Dispatcher';
+// import axios from 'axios';
 
 class SourcesStore extends EventEmitter {
   constructor() {
     super();
-    this.sources = axios.get('https://newsapi.org/v1/sources?language=en')
-      .then((response) => {return
-        response.data.sources;
-        console.log(response);
-      });
+
+    this.sources = [];
+    // this.getSources = this.getSources.bind(this);
+
   }
 }
 
+export const getSources = () => this.sources;
+
+const handleActions = (action) => {
+  if (action.type === 'VIEW_SOURCES') {
+    this.sources = action.sources;
+    this.emit('viewsources');
+  }
+};
+
 const sourcesStore = new SourcesStore;
+
+dispatcher.register();
+
+/* axios.get('https://newsapi.org/v1/sources?language=en')
+      .then((response) => {
+        console.log(response);
+      }); */
 
 export default SourcesStore;

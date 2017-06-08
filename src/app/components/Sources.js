@@ -3,13 +3,13 @@
 
 import React from 'react';
 
-import SourcesStore from '../stores/SourcesStore';
+import * as sourcesStore from '../stores/SourcesStore';
 
 export default class Sources extends React.Component {
   constructor() {
     super();
     this.state = {
-      sources: SourcesStore,
+      sources: sourcesStore.getSources,
     };
   }
   render() {
