@@ -19,7 +19,6 @@ class SourcesStore extends EventEmitter {
   }
 
   handleActions(action) {
-    console.log("action", action)
     if (action.type === 'RECIEVE_SOURCES') {
       this.sources = action.sources;
       this.emit('change');
