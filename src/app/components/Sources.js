@@ -3,7 +3,6 @@
 
 import React from 'react';
 import * as Actions from '../actions/Actions';
-
 import sourcesStore from '../stores/SourcesStore';
 
 export default class Sources extends React.Component {
