@@ -40,7 +40,7 @@ export default class Sources extends React.Component {
     //    <li key={source.id}><a>{source.name}</a></li>
     //   );
     // })
-
+    
     return (
       <div>
         <h1>News Sources</h1>
@@ -49,9 +49,9 @@ export default class Sources extends React.Component {
           {
             sourcesList.map((source) => {
               return (
-                <div>
+                <div key={source.id}>
                   <a href=''>
-                    <p key={source.index}>{source.name}</p>
+                    <p>{source.name}</p>
                   </a>
                 </div>
               );
