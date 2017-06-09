@@ -8,8 +8,10 @@ import axios from 'axios';
 				type: "RECIEVE_SOURCES",
 				sources: sources.data,
 			}))
-			// .catch(message => Dispatcher.dispatch({
-			// 	type: "RECIEVE_SOURCES_ERROR",
-			// 	message
-			// }));
+			.catch((message) => {
+        Dispatcher.dispatch({
+				type: "RECIEVE_SOURCES_ERROR",
+				message,
+			})
+      });
 }
