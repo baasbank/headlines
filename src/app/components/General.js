@@ -2,6 +2,8 @@
 /* eslint-env es6*/
 
 import React from 'react';
+// import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 import Sources from './Sources';
 

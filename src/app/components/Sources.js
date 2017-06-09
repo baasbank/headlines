@@ -27,31 +27,35 @@ export default class Sources extends React.Component {
      const  sources  = this.state.sources.sources;
 
      const sourcesList = (sources === undefined) ? [] : sources;
-    //  console.log(sourcesList, "sources here in sources components");
-
-    //  let renderSources = function (){
-    //    return sources.map((source) => {
-    //     <li key={source.id}><a>{source.name}</a></li>;
-    //    })
-    //  }
-    // const sourceComponent =  sources.map((source) => {
-    //   return (
-    //    <li key={source.id}><a>{source.name}</a></li>
-    //   );
-    // })
     
+   // <a href={`/headlines/?sourceId=${source.id}&sortBy=${sortBy}`}>
     return (
+      
       <div>
         <h1>News Sources</h1>
         {/*<ul>{sourceComponent}</ul>*/}
         <ul>
           {
             sourcesList.map((source) => {
+              //console.log(source.sortBysAvailable);
               return (
                 <div key={source.id}>
-                  <a href=''>
-                    <p>{source.name}</p>
-                  </a>
+                  {source.name}
+                  {/*{source.sortBysAvailable.length === 1 ? (<p onClick={() => getData(source.sortBysAvailable[0], source.id)}>{source.sortBysAvailable[0]}</p>) : 
+                    (source.sortBysAvailable.map((data, i) => <p key={i} onClick={() => getData(data, source.id)}>{data}</p>))
+                  }*/}
+                  {source.sortBysAvailable.map((sortBy) => {
+                    // console.log({sortBy});
+                    return (
+                      <div key={sortBy}>
+                        <a href=''>
+                          <p>{sortBy}</p>
+                        </a>  
+                      </div>
+                    )
+                    }
+                  )
+                  }
                 </div>
               );
             })
@@ -61,3 +65,15 @@ export default class Sources extends React.Component {
     );
   }
   }
+
+{/*<p className="title" key={index}>{info.description}</p>
+                  {sortBy.map((options, index) => (
+                    <p key={index}>
+                      <a
+                        href={`#/headline?source=${info.id}&name=${info.name}
+                        &sortBy=${options}`}
+                      >
+                        {options} news
+                      </a>
+                    </p>
+                  ))}*/}
