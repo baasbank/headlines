@@ -1,18 +1,16 @@
-/* eslint linebreak-style: ["error", "windows"]*/
-/* eslint-env es6*/
-
 import React from 'react';
-// import { BrowserRouter as Router } from 'react-router-dom';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
-
-import Sources from './Sources';
 
 export default class General extends React.Component {
   render() {
     return (
       <div>
-        <h1>{'General'}</h1>
-        <Sources />
+        <h1>General header placeholder</h1>
+        <div>
+          {this.props.children}
+        </div>
+        <div>
+          <h1>Footer placeholder</h1>
+        </div>
       </div>
     );
   }
