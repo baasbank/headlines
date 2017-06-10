@@ -4,7 +4,7 @@
   "description": "A react app that shows news sources and their headlines",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "webpack -p",
     "dev": "webpack-dev-server --content-base  src/ --inline",
     "build:prod": "webpack -p && xcopy \"src/index.html\" \"dist/\" /F /Y"
@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
+    "babel-jest": "^20.0.3",
     "babel-loader": "^7.0.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
