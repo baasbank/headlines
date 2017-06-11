@@ -7,6 +7,7 @@ import sourcesStore from '../stores/SourcesStore';
 export default class Sources extends React.Component {
   constructor() {
     super();
+    this.handleSignOut = this.handleSignOut.bind(this);
     this.state = {
       sources: [],
     };
@@ -22,12 +23,19 @@ export default class Sources extends React.Component {
   );
   }
 
+handleSignOut() {
+  localStorage.removeItem('authenticated');
+  this.props.router.push('/login');
+}
+
+
   render() {
     const sources = this.state.sources.sources;
     const sourcesList = (sources === undefined) ? [] : sources;
     return (
       <div>
         <h1>News Sources</h1>
+        <button onClick={this.handleSignOut}>Sign Out</button>
         <ul>
           {
             sourcesList.map(source =>
