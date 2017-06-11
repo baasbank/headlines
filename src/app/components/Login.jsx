@@ -1,6 +1,6 @@
 import React from 'react';
 import GoogleLogin from 'react-google-login';
-import { withRouter } from 'react-router';
+
 
 class Login extends React.Component {
 
@@ -9,7 +9,6 @@ class Login extends React.Component {
       localStorage.authenticated = true;
       localStorage.userDetails = JSON.stringify(response.profileObj);
       this.props.router.push('/sources');
-      console.log(response);
     };
 
     const onFailure = () => {
