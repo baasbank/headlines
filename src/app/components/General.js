@@ -3,9 +3,7 @@ import React from 'react';
 export default class General extends React.Component {
   render() {
     const userDetails = JSON.parse(localStorage.getItem('userDetails'));
-    console.log(userDetails);
-    
-    // const userImageUrl = localStorage.getItem(userDetails.imageUrl);
+
     return (
       <div>
         <h1>General header placeholder</h1>
