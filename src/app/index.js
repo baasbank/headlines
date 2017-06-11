@@ -5,6 +5,7 @@ import { Router, Route, hashHistory } from 'react-router';
 import Sources from './components/Sources';
 import General from './components/General';
 import Headlines from './components/Headlines';
+import Login from './components/Login.jsx';
 
 const App = () => (
     <div>
@@ -12,6 +13,7 @@ const App = () => (
           <Route path="/" component={General}>
             <Route path="/articles/:article/:sortBy" component={Headlines}/>
             <Route path="/sources" component={Sources}/>
+            <Route path="/login" component={Login}/>
           </Route>
         </Router>
   </div>
