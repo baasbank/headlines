@@ -1,7 +1,3 @@
-/* eslint linebreak-style: ["error", "windows"]*/
-/* eslint-env es6*/
-
-// const webpack = require('webpack');
 const path = require('path');
 
 const DIST_DIR = path.resolve(__dirname, 'dist');
@@ -19,7 +15,6 @@ const config = {
     loaders: [
       {
         test: /\.jsx?$/,
-        include: SRC_DIR,
         loader: 'babel-loader',
         query: {
           presets: ['react', 'es2015', 'stage-2'],
@@ -27,7 +22,6 @@ const config = {
       },
     ],
   },
-
 };
 
 module.exports = config;

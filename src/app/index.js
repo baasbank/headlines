@@ -4,7 +4,7 @@ import { Router, Route, hashHistory } from 'react-router';
 
 import Sources from './components/Sources';
 import General from './components/General';
-import Headlines from './components/Headlines';
+import Headlines from './components/Headlines.jsx';
 import Login from './components/Login.jsx';
 
 const App = () => (
