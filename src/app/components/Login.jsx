@@ -12,7 +12,7 @@ class Login extends React.Component {
     };
 
     const onFailure = () => {
-      alert(`Couldn't log you in. Please try again`);
+      alert('Could not log you in. Please try again');
       this.props.router.push('/login');
     };
     const loginButton =
@@ -29,9 +29,10 @@ class Login extends React.Component {
       <span> Login with Google</span>*/}
     </GoogleLogin>;
     return (
-      <div>
-        <h1>Login placeholder</h1>
-        {loginButton}
+      <div id="login">
+        <h3>Welcome To Articools</h3>
+        <h4>Click to log in with your google account</h4>
+        <p>{loginButton}</p>
       </div>
     );
   }
