@@ -1,14 +1,15 @@
 const path = require('path');
 
-const DIST_DIR = path.resolve(__dirname, 'dist');
 const SRC_DIR = path.resolve(__dirname, 'src');
+
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const config = {
   entry: `${SRC_DIR}/app/index.js`,
   output: {
-    path: `${DIST_DIR}/app`,
+    path: `${__dirname}/src/dist/app`,
     filename: 'bundle.js',
-    publicPath: '/app/',
+    publicPath: '/',
   },
   watch: true,
   module: {
@@ -20,8 +21,19 @@ const config = {
           presets: ['react', 'es2015', 'stage-2'],
         },
       },
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader'],
+        }),
+      },
     ],
   },
+  plugins: [
+    new ExtractTextPlugin('styles.css'),
+  ]
 };
+
 
 module.exports = config;
