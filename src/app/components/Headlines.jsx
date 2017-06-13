@@ -19,15 +19,15 @@ export default class Headlines extends React.Component {
         articles: articlesStore.getArticles()
       })
     )
-  )
-}
+  );
+  }
 
   render() {
     const articles = this.state.articles.articles;
     const articlesList = (articles === undefined) ? [] : articles;
     return (
       <div>
-        <p>Articles</p>
+        <p className="highlight">Articles Men</p>
         <ul>
           {
             articlesList.map(article =>
