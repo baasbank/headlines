@@ -1,21 +1,24 @@
 import React from 'react';
+import Topbar from './Topbar.jsx';
+import Footer from './Footer.jsx';
 
-export default class General extends React.Component {
+
+class General extends React.Component {
   render() {
     const userDetails = JSON.parse(localStorage.getItem('userDetails'));
 
     return (
       <div>
-        <h1>General header placeholder</h1>
-        <p>Welcome, {userDetails.givenName}</p>
-        <img src={userDetails.imageUrl}/>
-        <div>
+          <Topbar />
+        {/*<p>Welcome, {userDetails.givenName}</p>
+        <img src={userDetails.imageUrl}/>*/}
+        <div className="news-body">
           {this.props.children}
         </div>
-        <div>
-          <h1>Footer placeholder</h1>
-        </div>
+          <Footer />
       </div>
     );
   }
 }
+
+export default General;
