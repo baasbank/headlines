@@ -11,7 +11,7 @@ import mockData from '../../mocks/sampleSources';
 describe('Actions', () => {
   let axiosMock;
   let dispatcherMock;
-  let error;
+  // let error;
   beforeEach(() => {
     axiosMock = sinon.stub(axios, 'get').callsFake(() => {
       // console.log('err', err);
@@ -31,8 +31,8 @@ describe('Actions', () => {
 
   describe('Test for sources action', () => {
     describe('Test for axios', () => {
-      error = true;
-      let mockdata = { ...mockData };
+      // error = true;
+      const mockdata = { ...mockData };
 
       it('should call axios', () => {
         getSourcesfromActions();

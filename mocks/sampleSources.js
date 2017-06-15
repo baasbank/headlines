@@ -37,6 +37,6 @@ const mockdata = {
       ]
     },
   ]
-}
+};
 
 export default mockdata;

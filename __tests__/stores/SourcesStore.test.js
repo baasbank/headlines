@@ -1,21 +1,28 @@
 import sourcesStore from '../../src/app/stores/SourcesStore';
-import Dispatcher from '../../src/app/dispatcher/Dispatcher';
+// import Dispatcher from '../../src/app/dispatcher/Dispatcher';
+import mockData from '../../mocks/sampleSources';
 // import * as Constant from '../../constants';
 
-const sources = [
-  {
-    id: 'BBC',
-    description: 'British news',
-  },
-  {
-    id: 'Super sport',
-    description: 'super sport new',
-  },
-];
+const sources = { ...mockData };
+//  [
+//   {
+//     id: 'BBC',
+//     description: 'British news',
+//   },
+//   {
+//     id: 'Super sport',
+//     description: 'super sport new',
+//   },
+// ];
 
-test('Sources Store should be empty initially', () => {
-  const source = sourcesStore.getSources;
-  expect(source).toHaveLength(0);
+describe('Test for sources store', () => {
+  it('should be empty initially', () => {
+    const source = sourcesStore.getSources;
+    expect(source).toHaveLength(0);
+  });
+  // it('should return sources when getAll() is called', () => {
+  //   expect(sourcesStore.getAll).toBe(sources);
+  // });
 });
 
 // test('Store should listen for a  "RECIEVE_SOURCES" event', () => {
