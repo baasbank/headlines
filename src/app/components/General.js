@@ -14,6 +14,7 @@ class General extends React.Component {
         <img src={userDetails.imageUrl}/>*/}
         <div className="news-body">
           {this.props.children}
+          <div className="clearfix"></div>
         </div>
           <Footer />
       </div>

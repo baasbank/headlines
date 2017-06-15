@@ -2,15 +2,15 @@ import axios from 'axios';
 
 import Dispatcher from '../dispatcher/Dispatcher';
 
-export default function getSourcesfromActions() {
+export function getSourcesfromActions() {
   return axios
     .get('https://newsapi.org/v1/sources?language=en')
-    .then(sources =>
+    .then((sources) => {
       Dispatcher.dispatch({
         type: 'RECIEVE_SOURCES',
         sources: sources.data
-      })
-    )
+      });
+    })
     .catch((message) => {
       Dispatcher.dispatch({
         type: 'RECIEVE_SOURCES_ERROR',
