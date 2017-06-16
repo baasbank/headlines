@@ -9,7 +9,7 @@ window.localStorage = localStorageMock;
 describe('General', () => {
   beforeEach(() => {
     window.localStorage.setItem('userDetails', JSON.stringify({
-      givenName: 'Bamidele',
+      givenName: 'Baasbank',
       imageUrl: 'me',
     }));
   });

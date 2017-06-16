@@ -1,13 +1,11 @@
 const path = require('path');
-
-const SRC_DIR = path.resolve(__dirname, 'src');
-
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
-  entry: `${SRC_DIR}/app/index.js`,
+  entry: './src/app/index.js',
   output: {
-    path: `${__dirname}/src/dist/app`,
+    path: path.join(__dirname, 'public'),
     filename: 'bundle.js',
     publicPath: '/',
   },
@@ -17,6 +15,7 @@ const config = {
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
+        exclude: /node_modules/,
         query: {
           presets: ['react', 'es2015', 'stage-2'],
         },
@@ -31,7 +30,10 @@ const config = {
     ],
   },
   plugins: [
-    new ExtractTextPlugin('styles.css'),
+    new HtmlWebpackPlugin({
+      template: 'src/index.html'
+    }),
+    new ExtractTextPlugin('css/styles.css'),
   ]
 };
 

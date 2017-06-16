@@ -13,12 +13,8 @@ describe('Actions', () => {
   let dispatcherMock;
   // let error;
   beforeEach(() => {
-    axiosMock = sinon.stub(axios, 'get').callsFake(() => {
-      // console.log('err', err);
-      // if (err !== '') {
-      //   return Promise.reject('errror occurred');
-      // }
-      return Promise.resolve({ ...mockData });
+    axiosMock = sinon.stub(axios, 'get').callsFake(() => 
+      Promise.resolve({ ...mockData }))
     });
 
     dispatcherMock = sinon.spy(dispatcher, 'dispatch');

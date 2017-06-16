@@ -1,19 +1,20 @@
 import React from 'react';
+import { hashHistory } from 'react-router';
 import GoogleLogin from 'react-google-login';
 
 
-class Login extends React.Component {
 
+class Login extends React.Component {
   render() {
     const onSuccess = (response) => {
       localStorage.authenticated = true;
       localStorage.userDetails = JSON.stringify(response.profileObj);
-      this.props.router.push('/sources');
+      hashHistory.push('/sources');
     };
 
     const onFailure = () => {
       alert('Could not log you in. Please try again');
-      this.props.router.push('/login');
+      hashHistory.push('/login');
     };
     const loginButton =
     <GoogleLogin
@@ -23,19 +24,19 @@ class Login extends React.Component {
       }
       onSuccess={onSuccess}
       onFailure={onFailure}
-      tag='button'
-    >
-      {/*<FontAwesome name="google" />
-      <span> Login with Google</span>*/}
-    </GoogleLogin>;
+      tag='button'>Login with Google</GoogleLogin>;
     return (
-      <div id="login">
+      <div className="container">
+        <div className="intro">
         <h3>Welcome To Articools</h3>
-        <h4>Click to log in with your google account</h4>
-        <p>{loginButton}</p>
+        <p><h4>See news from over 70 sources from around the world</h4></p>
+        <p><h4>Click to log in with your google account</h4></p>
+          <div><p>{loginButton}</p></div>
+        </div>
       </div>
     );
   }
 }
 export default Login;
+
 

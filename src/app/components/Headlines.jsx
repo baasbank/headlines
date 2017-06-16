@@ -7,7 +7,7 @@ export default class Headlines extends React.Component {
   constructor() {
     super();
     this.state = {
-      articles: []
+      articles: [],
     };
   }
 
@@ -26,7 +26,6 @@ export default class Headlines extends React.Component {
   //   localStorage.removeItem('authenticated');
   //   this.props.router.push('/login');
   // }
-
   render() {
     const articles = this.state.articles.articles;
     const articlesList = articles === undefined ? [] : articles;
