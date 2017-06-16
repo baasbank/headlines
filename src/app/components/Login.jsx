@@ -14,7 +14,7 @@ class Login extends React.Component {
 
     const onFailure = () => {
       alert('Could not log you in. Please try again');
-      hashHistory.push('/login');
+      hashHistory.push('/');
     };
     const loginButton =
     <GoogleLogin
