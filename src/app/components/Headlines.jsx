@@ -54,9 +54,9 @@ export default class Headlines extends React.Component {
  * to prevent memory leaks.
  */
 
-  componentWillUnmount() {
-    articlesStore.removeListener('change', this.getArticles);
-  }
+  // componentWillUnmount() {
+  //   articlesStore.removeListener('change', this.getArticles);
+  // }
 
 
   render() {

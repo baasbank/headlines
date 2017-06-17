@@ -55,18 +55,18 @@ class Sources extends React.Component {
  * to prevent memory leaks.
  */
 
-  componentWillUnmount() {
-    sourcesStore.removeListener('change', this.getSources);
-  }
+  // componentWillUnmount() {
+  //   sourcesStore.removeListener('change', this.getSources);
+  // }
 
 /**
  * This function is used to search for news sources.
  * @param {string}
  */
-
   updateSearch(event) {
-    this.setState({ search: event.target.value.substr(0, 10) });
+      this.setState({ search: event.target.value.substr(0, 10) });
   }
+
   render() {
     const sources = this.state.sources.sources;
     const sourcesList = (sources === undefined) ? [] : sources;
