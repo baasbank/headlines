@@ -2,6 +2,13 @@ import axios from 'axios';
 
 import Dispatcher from '../dispatcher/Dispatcher';
 
+/**
+  * This function gets news sources from news API and passes
+  * the sources to the dispatcher which dispatches the related
+  * action and the sources received.
+  * @returns {array} an array of sources.
+*/
+
 export function getSourcesfromActions() {
   return axios
     .get('https://newsapi.org/v1/sources?language=en')
@@ -18,6 +25,15 @@ export function getSourcesfromActions() {
       });
     });
 }
+
+/**
+  * This function accepts two parameters; source Id and sortBy,
+  * uses those to get news articles from news API, and passes the
+  * articles to the dispatcher.
+  * @param {string} sortBy, how to sort the articles received.
+  * @param {string} sourceId, the ID of the news source.
+  * @returns {object} the dispatcher.
+*/
 
 export function getArticlesFromActions(sourceId, sortBy) {
   return axios
