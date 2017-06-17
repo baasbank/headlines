@@ -48,7 +48,7 @@ class Sources extends React.Component {
       })
     )
   );
-}
+  }
 
 /**
  * When the component unmounts, remove the 'change' event
