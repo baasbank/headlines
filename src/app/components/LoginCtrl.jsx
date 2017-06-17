@@ -1,17 +1,16 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
-// import Login from './Login.jsx';
 
 /**
-* This component displays the navigation bar at the top of the page.
-* @class Header
-* @extends {React.Component}
+* This component shows the navigation bar at the top of
+* the app.
+* @class LoginCtrl
+* @extends React.Component
 */
 class LoginCtrl extends React.Component {
   constructor() {
     super();
-
-    this.handleLogoutClick = this.handleLogoutClick.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   /**
@@ -19,22 +18,15 @@ class LoginCtrl extends React.Component {
   * @method handleLogoutClick
   * @memberOf Header
   */
-  handleLogoutClick() {
+  handleLogout() {
     localStorage.removeItem('authenticated');
     hashHistory.push('/');
   }
 
-  /**
-  * This lifecycle method displays the component on the page.
-  * The component renders the links in the navigation bar.
-  * @method render
-  * @returns a react element, button
-  * @memberOf Header
-  */
   render() {
     /**
-    * @param {object} props
-    * @returns a react element, button
+    * @param {object} 
+    * @returns react elements
     */
     function LogOutButton(props) {
       return (
@@ -46,18 +38,16 @@ class LoginCtrl extends React.Component {
       );
     }
 
-    // Switches dynamically between login or logout button depending on if
-    // the user is logged in or not.
+    /**
+     * When the user is logged in, this displays a logout button.
+     */
     let button = null;
     let sourcesLink = null;
-    const IsLoggedIn = localStorage.getItem('authenticated');
-    if (IsLoggedIn) {
-      button = <LogOutButton onClick={this.handleLogoutClick} />;
+    const userIsLoggedIn = localStorage.getItem('authenticated');
+    if (userIsLoggedIn) {
+      button = <LogOutButton onClick={this.handleLogout} />;
       sourcesLink = <Link className="header" to="Sources">News Sources </Link>;
     }
-    // else {
-    //   button = <Login />;
-    // }
 
     return (
       <nav
