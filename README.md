@@ -1,6 +1,6 @@
 # Articools
 
-[![Build Status](https://travis-ci.org/baasbank/headlines.svg?branch=testing)](https://travis-ci.org/baasbank/headlines)[![Coverage Status](https://coveralls.io/repos/github/baasbank/headlines/badge.svg?branch=testing)](https://coveralls.io/github/baasbank/headlines?branch=testing)
+[![Build Status](https://travis-ci.org/baasbank/headlines.svg?branch=testing)](https://travis-ci.org/baasbank/headlines)[![Coverage Status](https://coveralls.io/repos/github/baasbank/headlines/badge.svg?branch=testing)](https://coveralls.io/github/baasbank/headlines?branch=testing)[![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/codeclimate/codeclimate)
 
 ## Introduction
 
