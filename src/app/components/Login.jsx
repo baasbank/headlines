@@ -51,9 +51,9 @@ class Login extends React.Component {
     return (
       <div className="container">
         <div className="intro">
-        <h3>Welcome To Articools</h3>
-        <h4>See news from over 70 sources from around the world</h4>
-        <p><h4>Click to log in with your google account</h4></p>
+          <h3>Welcome To Articools</h3>
+          <h4>See news from over 70 sources from around the world</h4>
+          <p><h4>Click to log in with your google account</h4></p>
           <div><p>{loginButton}</p></div>
         </div>
       </div>
