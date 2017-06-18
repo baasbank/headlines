@@ -28,7 +28,7 @@ Or download or clone this repository and run it on your machine.
 
 ## Technologies
 
-* [es6(ECMAScript 2015):](es6-features.org/) es6 is the sixth major release of the javascript language specification. It enables features like constants, arrow functions, template literals, etc.  
+* [es6(ECMAScript 2015):](https://en.wikipedia.org/wiki/ECMAScript) es6 is the sixth major release of the javascript language specification. It enables features like constants, arrow functions, template literals, etc.  
 * [React:](https://facebook.github.io/react/tutorial/tutorial.html) Facebook open source, efficient, javascript library for building user interfaces.  
 * [ReactDOM:](https://facebook.github.io/react/docs/react-dom.html) ReactDOM is used to mount JSX elements on the DOM. It is the glue between React and the DOM.  
 * [Babel:](https://babeljs.io/) Babel is used to transpile es6 down to es5.  
