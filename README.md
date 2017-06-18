@@ -46,7 +46,7 @@ Or download or clone this repository and run it on your machine.
 * Clone it.
 * Create your feature branch on your local machine.
 * Push your changes to your remote branch.
-* Open a pull request.
+* Open a pull request to the master branch.
 
 
 ## Limitations
