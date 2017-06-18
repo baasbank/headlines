@@ -1,6 +1,6 @@
 import sinon from 'sinon';
 import axios from 'axios';
-import dispatcher from '../../src/app/dispatcher/Dispatcher';
+import Dispatcher from '../../src/app/dispatcher/Dispatcher';
 import sourcesStore from '../../src/app/stores/SourcesStore';
 import {
   getSourcesfromActions,
@@ -11,18 +11,15 @@ import mockData from '../../mocks/sampleSources';
 describe('Actions', () => {
   let axiosMock;
   let dispatcherMock;
-  // let error;
   beforeEach(() => {
-    axiosMock = sinon.stub(axios, 'get').callsFake(() => 
-      Promise.resolve({ ...mockData }))
-    });
-
-    dispatcherMock = sinon.spy(dispatcher, 'dispatch');
+    axiosMock = sinon.stub(axios, 'get').callsFake(() =>
+      Promise.resolve({ ...mockData }));
+    dispatcherMock = sinon.spy(Dispatcher, 'dispatch');
   });
 
   afterEach(() => {
     axios.get.restore();
-    dispatcher.dispatch.restore();
+    Dispatcher.dispatch.restore();
   });
 
   describe('Test for sources action', () => {
@@ -42,7 +39,7 @@ describe('Actions', () => {
   });
 
   describe('Test for dispatcher', () => {
-    it('should call dispatcher.dispatch', () => {
+    it('should call Dispatcher.dispatch', () => {
       getSourcesfromActions().then((data) => {
         expect(dispatcherMock.called).toBeTruthy();
         expect(dispatcherMock.getCall(1).args[0].type).toBe('RECEIVE_SOURCES');
@@ -54,7 +51,7 @@ describe('Actions', () => {
   describe('Test for articles action', () => {
     describe('Test for axios', () => {
       it('should call axios', () => {
-        getArticlesFromActions('bbc', 'top').then((data) => {
+        getArticlesFromActions('cnn', 'latest').then((data) => {
           expect(axiosMock.calledOnce).toBeTruthy();
         });
       });

@@ -6,7 +6,7 @@ import Dispatcher from '../dispatcher/Dispatcher';
 class ArticlesStore extends EventEmitter {
   /**
    * Creates an instance of ArticlesStore.
-   * @constructor 
+   * @constructor
    */
   constructor() {
     super();
