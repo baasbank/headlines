@@ -1,0 +1,177 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+#topbar{
+  width: 100%;
+  height: 50px;
+  // margin: auto;
+  overflow: hidden;
+  padding: auto;
+  background-color: #0d47a1;
+}
+
+// #branding{
+//   margin-top: 10px;
+//   margin-bottom: 10px;
+// }
+
+#topbarh1{
+  color: whitesmoke;
+  line-height: 20px;
+}
+
+#footer{
+  background: black;
+  width: 100%;
+  clear: both;
+  position: absolute;
+}
+
+#copy{
+  color: white;
+  text-align: center;
+  padding-top: 40px;
+}
+
+.news-body{
+  height: auto;
+}
+
+.intro{
+  text-align: center;
+  padding-top: 170px;
+  border-style: solid;
+  border-color:rgba(173,216,230, 0.5);
+  background-color: white;
+  width: 50%;
+  padding-bottom: 180px;
+  margin: auto;
+  color: #0d47a1;
+  // display: block;
+}
+
+#sourceblock{
+  text-align: center;
+  width: 70%;
+  border-bottom: 1px solid lightblue;
+  margin: 0px 15px 20px 150px;
+  display: inline-block;
+}
+
+.sourceNames{
+  display: inline-block;
+  width: 60%;
+}
+
+.sortByClass{
+  display: inline-block !important;
+  width: 30%;
+}
+.buttonnormal{
+    background-color: #0d47a1;
+    border-radius: 3px;
+    border: 0px;
+    font-size: 14px;
+    color: white;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    padding: 2px;
+    list-style: none;
+  
+}
+
+.buttonnormal a{
+  color: white;
+  text-decoration: none;
+}
+.buttonnormal a:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.thumbnail img {
+  max-height: 147px;
+}
+
+.sort-by{
+  display: inline-block;
+  overflow: auto;
+  li{
+    display: inline;
+    a{
+      background: red;
+      color: white;
+      padding: 10px;
+      padding-top: 10px;
+      border-radius: 3px;
+    }
+  }
+}
+
+
+#sortbytext{
+
+  color: white;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#sortbytext li{
+  // display: inline;
+}
+
+.my-list-group{
+  list-style-type: none;
+}
+
+#selectnews{
+  text-align: center;
+  color: #0d47a1;
+}
+
+.signout{
+  position: absolute;
+}
+
+#threeish{
+  display: inline-block;
+}
+
+.same-height:nth-child(4n+6){
+  clear: both;
+}
+
+.highlight{
+  text-align: center;
+  color: #0d47a1;
+  font-size: 24px;
+}
+
+#arthead{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.navbar-inverse{
+  background-color: #0d47a1;
+}
+.searchSource{
+  width: 80%;
+  margin: 0 auto;
+}
+
+.news-btn {
+  margin: 0rem 1rem 0 0;
+}
+
+.col-btn {
+  padding-top: 2rem; 
+}
+
+.sources {
+  position: relative;
+  left: 10%;
+  margin-top: 2.5rem;
+}

@@ -1,33 +1,41 @@
-/* eslint linebreak-style: ["error", "windows"]*/
-/* eslint-env es6*/
-
-// const webpack = require('webpack');
 const path = require('path');
-
-const DIST_DIR = path.resolve(__dirname, 'dist');
-const SRC_DIR = path.resolve(__dirname, 'src');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
-  entry: `${SRC_DIR}/app/index.js`,
+  entry: './src/app/index.js',
   output: {
-    path: `${DIST_DIR}/app`,
+    path: path.join(__dirname, 'public'),
     filename: 'bundle.js',
-    publicPath: '/app/',
+    publicPath: '/',
   },
   watch: true,
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
-        include: SRC_DIR,
         loader: 'babel-loader',
+        exclude: /node_modules/,
         query: {
           presets: ['react', 'es2015', 'stage-2'],
         },
       },
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader'],
+        }),
+      },
     ],
   },
-
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'src/index.html'
+    }),
+    new ExtractTextPlugin('css/styles.css'),
+  ]
 };
+
 
 module.exports = config;
