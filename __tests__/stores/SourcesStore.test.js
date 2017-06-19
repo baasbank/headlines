@@ -23,21 +23,21 @@ describe('Sources Store', () => {
     afterEach(() => {
       sourcesStore.handleActions({ type: 'RECIEVE_SOURCES', sources: {} });
     });
-    it('should return an empty object on first call', () => {
+    it('should be an empty object initially', () => {
       expect(sourcesStore.getSources()).toEqual([]);
     });
 
-    it('should be registered to a dispatcher', () => {
+    it('should be registered to the dispatcher', () => {
       dispatcherMock({ type: 'RECIEVE_SOURCES', sources, });
       expect(sourcesStore.getSources()).toEqual(sources);
     });
 
-    it('should return an updated sources after receiving an action', () => {
+    it('should return sources when it receives an action', () => {
       sourcesStore.handleActions({ type: 'RECIEVE_SOURCES', sources, });
       expect(sourcesStore.getSources()).toEqual(sources);
     });
 
-    it('should not respond to an action not registered to it', () => {
+    it('should only respond to actions it is subscribed to', () => {
       sourcesStore.handleActions({ type: 'GET_ALL_ARTICLES', sources, });
       expect(sourcesStore.getSources()).toEqual({});
     });
