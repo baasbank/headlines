@@ -33,10 +33,7 @@ class Sources extends React.Component {
   }
 
 /**
-* When the component mounts, the getSourcesfromActions
-* function is called.
-* The sources Store listens for the 'change' event,
-* then calls the 'getSources' method that sends the
+*calls the 'getSources' method that sends the
 * sources to the component.
 */
 
@@ -55,16 +52,12 @@ class Sources extends React.Component {
  * to prevent memory leaks.
  */
 
-  // componentWillUnmount() {
-  //   sourcesStore.removeListener('change', this.getSources);
-  // }
-
 /**
  * This function is used to search for news sources.
  * @param {string}
  */
   updateSearch(event) {
-      this.setState({ search: event.target.value.substr(0, 10) });
+    this.setState({ search: event.target.value.substr(0, 10) });
   }
 
   render() {

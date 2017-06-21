@@ -16,7 +16,8 @@ describe('Articles Store', () => {
           title: 'Google releases new TensorFlow Object Detection API',
         },
         1: {
-          title: 'Amazon wants to become Walmart before Walmart can become Amazon',
+          title: `Amazon wants to become Walmart 
+          before Walmart can become Amazon`,
         },
       };
     });

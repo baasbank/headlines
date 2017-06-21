@@ -20,6 +20,7 @@ class LoginCtrl extends React.Component {
   */
   handleLogout() {
     localStorage.removeItem('authenticated');
+    localStorage.removeItem('userDetails');
     hashHistory.push('/');
   }
 

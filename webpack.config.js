@@ -1,3 +1,7 @@
+const Dotenv = require('dotenv-webpack');
+
+const webpack = require('webpack');
+
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -30,10 +34,21 @@ const config = {
     ],
   },
   plugins: [
+
     new HtmlWebpackPlugin({
       template: 'src/index.html'
     }),
     new ExtractTextPlugin('css/styles.css'),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production'),
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin(),
+    new Dotenv({
+      path: './.env',
+      safe: false,
+    }),
   ]
 };
 

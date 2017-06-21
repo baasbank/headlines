@@ -42,7 +42,7 @@ export function getArticlesFromActions(sourceId, sortBy) {
         sourceId
         }&sortBy=${
         sortBy
-        }&apiKey=213327409d384371851777e7c7f78dfe`
+        }&apiKey=${process.env.API_KEY}`
     )
     .then(articles =>
       Dispatcher.dispatch({

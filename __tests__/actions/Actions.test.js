@@ -24,7 +24,6 @@ describe('Actions', () => {
 
   describe('Test for sources action', () => {
     describe('Test for axios', () => {
-      // error = true;
       const mockdata = { ...mockData };
 
       it('should call axios', () => {

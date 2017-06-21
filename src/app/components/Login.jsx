@@ -11,9 +11,7 @@ import { hashHistory } from 'react-router';
 class Login extends React.Component {
   render() {
 /**
-* This is the function that gets run if the user's authentication
-* was successful. It also stores the user's google details in local
-* storage.
+*This stores the user's google details in local storage.
 * @param {array} response
 * Returns an object that contains the user's details from google.
 * @returns {object}
@@ -25,12 +23,10 @@ class Login extends React.Component {
     };
 
 /**
-* This is the function that gets run if the user's authentication
-* failed. It also shows an error message.
+* runs if the user's authentication failed.
 */
     const onFailure = () => {
       alert('Could not log you in. Please try again');
-      hashHistory.push('/');
     };
 
 /**
@@ -40,10 +36,7 @@ class Login extends React.Component {
  */
     const loginButton =
     <GoogleLogin
-      clientId={
-        '458845920717-hbpimm618vvmovfat64glahsbj1gjodv' +
-        '.apps.googleusercontent.com'
-      }
+      clientId = {process.env.CLIENT_ID}
       onSuccess={onSuccess}
       onFailure={onFailure}
       tag="button">Login with Google</GoogleLogin>;
@@ -53,7 +46,7 @@ class Login extends React.Component {
         <div className="intro">
           <h3>Welcome To Articools</h3>
           <h4>See news from over 70 sources from around the world</h4>
-          <p><h4>Click to log in with your google account</h4></p>
+          <h4>Click to log in with your google account</h4>
           <div><p>{loginButton}</p></div>
         </div>
       </div>

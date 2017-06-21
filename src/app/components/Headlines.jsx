@@ -4,8 +4,7 @@ import { getArticlesFromActions } from '../actions/Actions';
 import articlesStore from '../stores/ArticlesStore';
 
 /**
- * Class for the Headlines component on which
- * news articles are rendered.
+ * Headlines component on which news articles are rendered.
  * @class Headlines
  * @extends React.Component
  */
@@ -28,11 +27,7 @@ export default class Headlines extends React.Component {
   }
 
 /**
- * When the component mounts, the getArticlesFromActions
- * function is called, and the article and sortBy parameters
- * are passed to it.
- * The Articles Store listens for the 'change' event,
- * then calls the 'getArticles' method that sends the
+ *calls the 'getArticles' method that sends the
  * articles to the component.
  */
 
@@ -49,16 +44,6 @@ export default class Headlines extends React.Component {
     );
   }
 
- /**
- * When the component unmounts, remove the 'change' event
- * to prevent memory leaks.
- */
-
-  // componentWillUnmount() {
-  //   articlesStore.removeListener('change', this.getArticles);
-  // }
-
-
   render() {
     const articles = this.state.articles.articles;
     const articlesList = articles === undefined ? [] : articles;
@@ -70,10 +55,12 @@ export default class Headlines extends React.Component {
           {articlesList.map(article => (
             <div className="col-md-3 same-height" key={article.url}>
               <div className="thumbnail">
-                <img src={article.urlToImage}/>
-                <div className="caption">
-                  <a href={article.url}>{article.title}</a>
-                </div>
+                <a href={article.url} target={'#'}>
+                  <img src={article.urlToImage}/>
+                  <div className="caption">
+                    <p >{article.title}</p>
+                  </div>
+                </a>
               </div>
             </div>
           ))}
