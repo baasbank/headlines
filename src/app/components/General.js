@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import LoginCtrl from './LoginCtrl.jsx';
+
 
 /**
  * Class for the general component on which
@@ -22,6 +24,10 @@ class General extends React.Component {
     );
   }
 }
+
+General.propTypes = {
+  children: PropTypes.element
+};
 
 export default General;
 

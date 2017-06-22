@@ -4,7 +4,7 @@ import { getSourcesfromActions } from '../actions/Actions';
 import sourcesStore from '../stores/SourcesStore';
 
 /**
- * Class for the sources component on which the 
+ * Class for the sources component on which the
  * news sources are rendered.
  * @class Sources
  * @extends React.Component
@@ -30,6 +30,7 @@ class Sources extends React.Component {
       sources: [],
       search: ''
     };
+    this.recieveSources = this.recieveSources.bind(this);
   }
 
 /**
@@ -39,21 +40,25 @@ class Sources extends React.Component {
 
   componentDidMount() {
     getSourcesfromActions();
-    sourcesStore.on('change', () => (
-      this.setState({
-        sources: sourcesStore.getSources()
-      })
-    )
-  );
+    sourcesStore.on('change', this.recieveSources);
   }
 
 /**
- * When the component unmounts, remove the 'change' event
- * to prevent memory leaks.
+ * remove the 'change' event to prevent memory leaks.
  */
 
+  componentWillUnmount() {
+    sourcesStore.removeListener('change', this.recieveSources);
+  }
+
+  recieveSources() {
+    this.setState({
+      articles: sourcesStore.getSources()
+    });
+  }
+
 /**
- * This function is used to search for news sources.
+ * Search for news sources.
  * @param {string}
  */
   updateSearch(event) {

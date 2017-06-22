@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 
 import { getArticlesFromActions } from '../actions/Actions';
 import articlesStore from '../stores/ArticlesStore';
@@ -24,6 +26,7 @@ export default class Headlines extends React.Component {
     this.state = {
       articles: [],
     };
+    this.recieveArticles = this.recieveArticles.bind(this);
   }
 
 /**
@@ -37,11 +40,17 @@ export default class Headlines extends React.Component {
       this.props.routeParams.sortBy
     );
 
-    articlesStore.on('change', () =>
-      this.setState({
-        articles: articlesStore.getArticles()
-      })
-    );
+    articlesStore.on('change', this.recieveArticles);
+  }
+
+  componentWillUnmount() {
+    articlesStore.removeListener('change', this.recieveArticles);
+  }
+
+  recieveArticles() {
+    this.setState({
+      articles: articlesStore.getArticles()
+    });
   }
 
   render() {
@@ -68,3 +77,9 @@ export default class Headlines extends React.Component {
     );
   }
 }
+
+Headlines.PropTypes = {
+  routeParams: PropTypes.object,
+  article: PropTypes.string,
+  sortBy: PropTypes.string
+};

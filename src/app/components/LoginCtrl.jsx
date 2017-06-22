@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
+import PropTypes from 'prop-types';
 
 /**
 * This component shows the navigation bar at the top of
@@ -72,5 +73,9 @@ class LoginCtrl extends React.Component {
     );
   }
 }
+
+LoginCtrl.PropTypes = {
+  LogOutButton: PropTypes.func
+};
 
 export default LoginCtrl;
