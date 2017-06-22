@@ -53,7 +53,7 @@ class Sources extends React.Component {
 
   recieveSources() {
     this.setState({
-      articles: sourcesStore.getSources()
+      sources: sourcesStore.getSources()
     });
   }
 
