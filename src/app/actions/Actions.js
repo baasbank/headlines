@@ -18,10 +18,10 @@ export function getSourcesfromActions() {
         sources: sources.data
       });
     })
-    .catch((message) => {
+    .catch((errorMessage) => {
       Dispatcher.dispatch({
         type: 'RECIEVE_SOURCES_ERROR',
-        message
+        errorMessage
       });
     });
 }

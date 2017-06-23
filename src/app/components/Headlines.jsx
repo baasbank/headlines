@@ -56,10 +56,12 @@ export default class Headlines extends React.Component {
   render() {
     const articles = this.state.articles.articles;
     const articlesList = articles === undefined ? [] : articles;
+    const source = this.props.routeParams.article;
+    const sortBy = this.props.routeParams.sortBy;
     return (
       <div>
         <div id="arthead">
-        <p className="highlight"><strong>Articles</strong></p>
+        <p className="highlight"><strong>{sortBy} news from {source}</strong></p>
         </div>
           {articlesList.map(article => (
             <div className="col-md-3 same-height" key={article.url}>

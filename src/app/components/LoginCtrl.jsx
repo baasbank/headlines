@@ -48,7 +48,7 @@ class LoginCtrl extends React.Component {
     const userIsLoggedIn = localStorage.getItem('authenticated');
     if (userIsLoggedIn) {
       button = <LogOutButton onClick={this.handleLogout} />;
-      sourcesLink = <Link className="header" to="Sources">Back To Sources </Link>;
+      sourcesLink = <Link className="header" to="Sources">News Sources </Link>;
     }
 
     return (
@@ -56,7 +56,7 @@ class LoginCtrl extends React.Component {
         className="navbar navbar-inverse navbar-collapse header-nav">
         <div className="container-fluid navba">
           <div className="navbar-header">
-            <h4 className="navbar-brand">Articools</h4>
+            <Link className="navbar-brand">Articools</Link>
           </div>
           <ul className="nav navbar-nav">
             <li>

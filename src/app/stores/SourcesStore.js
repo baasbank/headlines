@@ -17,8 +17,9 @@ class SourcesStore extends EventEmitter {
      */
 
     this.sources = [];
-    this.message = '';
+    this.errorMessage = {};
     this.getSources = this.getSources.bind(this);
+    this.getError = this.getError.bind(this);
   }
 
   /**
@@ -30,6 +31,9 @@ class SourcesStore extends EventEmitter {
     return this.sources;
   }
 
+  getError() {
+    return this.errorMessage;
+  }
 /**
      * the handleActions function handles the message dispatched by actions,
      * and emits events and payload based on the type of action received.
@@ -42,7 +46,7 @@ class SourcesStore extends EventEmitter {
       this.emit('change');
     } else if (action.type === 'RECIEVE_SOURCES_ERROR') {
       this.message = action.message;
-      this.emit('change');
+      this.emit('error');
     }
   }
 }

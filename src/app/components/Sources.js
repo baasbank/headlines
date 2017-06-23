@@ -27,10 +27,12 @@ class Sources extends React.Component {
 
 
     this.state = {
+      error: '',
       sources: [],
       search: ''
     };
     this.recieveSources = this.recieveSources.bind(this);
+    this.recieveError = this.recieveError.bind(this);
   }
 
 /**
@@ -41,14 +43,16 @@ class Sources extends React.Component {
   componentDidMount() {
     getSourcesfromActions();
     sourcesStore.on('change', this.recieveSources);
+    sourcesStore.on('error', this.recieveError);
   }
 
 /**
- * remove the 'change' event to prevent memory leaks.
+ * preventing  memory leaks.
  */
 
   componentWillUnmount() {
     sourcesStore.removeListener('change', this.recieveSources);
+    sourcesStore.removeListener('error', this.recieveError);
   }
 
   recieveSources() {
@@ -57,15 +61,22 @@ class Sources extends React.Component {
     });
   }
 
+  recieveError() {
+    this.setState({
+      error: sourcesStore.getError()
+    });
+  }
+
 /**
  * Search for news sources.
  * @param {string}
- */
+*/
   updateSearch(event) {
     this.setState({ search: event.target.value.substr(0, 10) });
   }
 
   render() {
+    const error = this.state.error;
     const sources = this.state.sources.sources;
     const sourcesList = (sources === undefined) ? [] : sources;
 
@@ -73,11 +84,20 @@ class Sources extends React.Component {
       source => source.name.toLowerCase().indexOf(
       this.state.search.toLowerCase()) !== -1);
     return (
-      <div className="container">
-        <h3 id="selectnews">Select A News Source</h3>
+      <span>
+        {
+          error ?
+           <div className="container error">
+             <h4>Oops! An error occurred.</h4>
+             <p> Check your internet connection and refresh this page. </p>
+             </div> :
+           <div className="container">
+           <h3 id="selectnews">Select A News Source</h3>
         <div className="row">
           <div className="col">
-            <input type="text" className="form-control searchSource" placeholder="Search for a source" value={this.state.search} onChange={this.updateSearch.bind(this)}/>
+            <input type="text" className="form-control searchSource"
+            placeholder="Search for a source" value={this.state.search} 
+            onChange={this.updateSearch.bind(this)}/>
           </div>
         </div>
         <div className="row">
@@ -106,6 +126,8 @@ class Sources extends React.Component {
           </div>
         </div>
       </div>
+        }
+      </span>
     );
   }
   }
