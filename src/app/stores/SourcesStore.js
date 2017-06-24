@@ -1,6 +1,5 @@
 import { EventEmitter } from 'events';
 import Dispatcher from '../dispatcher/Dispatcher';
-// import axios from 'axios';
 
 class SourcesStore extends EventEmitter {
 /**
@@ -12,8 +11,7 @@ class SourcesStore extends EventEmitter {
     super();
 
     /**
-     * Initializing the state of sources to an empty array,
-     * binding sources, message, and the getSources function.
+     * Initializing state and binding functions.
      */
 
     this.sources = [];
@@ -35,8 +33,7 @@ class SourcesStore extends EventEmitter {
     return this.errorMessage;
   }
 /**
-     * the handleActions function handles the message dispatched by actions,
-     * and emits events and payload based on the type of action received.
+     * handle dispatched actions and emit events.
      * @param {object}
 */
 

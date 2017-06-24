@@ -9,16 +9,22 @@ import { hashHistory } from 'react-router';
  */
 
 class Login extends React.Component {
+  componentWillMount() {
+    if (localStorage.getItem('name')) {
+      hashHistory.push('/sources');
+    }
+  }
   render() {
 /**
 *This stores the user's google details in local storage.
-* @param {array} response
+* @param {array} response- response from google
 * Returns an object that contains the user's details from google.
 * @returns {object}
 */
     const onSuccess = (response) => {
       localStorage.authenticated = true;
       localStorage.userDetails = JSON.stringify(response.profileObj);
+      localStorage.name = JSON.stringify(response.profileObj.name);
       hashHistory.push('/sources');
     };
 
