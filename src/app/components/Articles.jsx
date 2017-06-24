@@ -64,7 +64,7 @@ export default class Articles extends React.Component {
     const sortBy = this.props.routeParams.sortBy;
     return (
       <div>
-        <div id="arthead">
+        <div className="arthead">
           <p className="highlight">
             <strong>{sortBy} news from {source}</strong>
           </p>
