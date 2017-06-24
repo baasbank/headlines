@@ -36,8 +36,7 @@ class Login extends React.Component {
     };
 
 /**
- * This assigns the google login component to a variable for
- * ease of rendering.
+ * Assign the google login component to a variable.
  * @returns react elements
  */
     const loginButton =

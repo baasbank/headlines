@@ -4,8 +4,7 @@ import { fetchSources } from '../actions/Actions';
 import sourcesStore from '../stores/SourcesStore';
 
 /**
- * Class for the sources component on which the
- * news sources are rendered.
+ * Class for the sources component on which the news sources are rendered.
  * @class Sources
  * @extends React.Component
  */
@@ -69,7 +68,7 @@ class Sources extends React.Component {
 
 /**
  * Search for news sources.
- * @param {string}
+ * @param {string} searchTerm - source to search for
 */
   updateSearch(event) {
     this.setState({ search: event.target.value.substr(0, 10) });

@@ -3,8 +3,7 @@ import { Link, hashHistory } from 'react-router';
 import PropTypes from 'prop-types';
 
 /**
-* This component shows the navigation bar at the top of
-* the app.
+* This component shows the navigation bar at the top of the app.
 * @class LoginCtrl
 * @extends React.Component
 */
@@ -17,7 +16,7 @@ class LoginController extends React.Component {
   /**
   * This method is called when a user clicks on the logout button.
   * @method handleLogoutClick
-  * @memberOf Header
+  * @memberOf LoginController
   */
   handleLogout() {
     localStorage.removeItem('authenticated');

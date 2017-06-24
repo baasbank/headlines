@@ -34,7 +34,7 @@ class SourcesStore extends EventEmitter {
   }
 /**
      * handle dispatched actions and emit events.
-     * @param {object}
+     * @param {object} action.Type - type of action
 */
 
   handleActions(action) {

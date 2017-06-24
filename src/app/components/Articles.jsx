@@ -13,7 +13,7 @@ import articlesStore from '../stores/ArticlesStore';
 
 export default class Articles extends React.Component {
   /**
-   * @constructor headlines
+   * @constructor Articles
   */
   constructor() {
     super();
@@ -30,10 +30,9 @@ export default class Articles extends React.Component {
   }
 
 /**
- *calls the 'getArticles' method that sends the
- * articles to the component.
- * @ param {string} article - news source id
- * @ param {string} sortBy - news sortBy method
+ *calls the 'getArticles' method that sends the articles to the component.
+ * @param {string} article - news source id
+ * @param {string} sortBy - news sortBy method
  */
 
   componentDidMount() {

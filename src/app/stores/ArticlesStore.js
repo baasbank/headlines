@@ -21,7 +21,7 @@ class ArticlesStore extends EventEmitter {
 
 /**
  * getArticles function
-  * @return {array} news articles.
+  * @return {array} articles-  news articles.
  */
 
   getArticles() {
@@ -30,7 +30,7 @@ class ArticlesStore extends EventEmitter {
 
 /**
      * handle dispatched actions and emit events.
-     * @param {object}
+     * @param {object} action.Type- type of action
 */
 
   handleActions(action) {

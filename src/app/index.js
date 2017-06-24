@@ -12,8 +12,7 @@ import PageNotFound from './components/PageNotFound.jsx';
 import '../../sass/main.scss';
 
 /**
-* check that a user cannot access certain
-* parts of the app unless signed in.
+* check that a user cannot access certain parts of the app unless signed in.
 * @param {String} nextState
 * @param {String} replace - the next url
 */
