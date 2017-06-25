@@ -7,11 +7,10 @@ const webpackConfig = require('./webpack.config');
 const compiler = webpack(webpackConfig);
 
 const port = 8080;
-// create our app
+
 const app = express();
 const noInfo = process.env.NODE_ENV === 'production' || false;
 
-// const port = process.env.PORT || 3000;
 app.use(require('webpack-dev-middleware')(compiler, { noInfo, publicPath: webpackConfig.output.publicPath }));
 app.use(express.static(path.join(__dirname, 'public')));
 
