@@ -1,8 +1,7 @@
 import React from 'react';
 
 /**
-* The page the user gets when an invalid route is entered
-* in the address bar.
+* The 404 page.
 * @returns react elements.
 */
 const pageNotFound = () => (

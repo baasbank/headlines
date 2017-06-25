@@ -6,6 +6,7 @@ const webpackConfig = require('./webpack.config');
 
 const compiler = webpack(webpackConfig);
 
+const port = 8080;
 // create our app
 const app = express();
 const noInfo = process.env.NODE_ENV === 'production' || false;
@@ -20,7 +21,7 @@ app.get('*', (request, response) => {
 
 
 app.listen(process.env.PORT || 8080, () => {
-  console.log(' server started on port ' + 8080);
+  console.log(`Server started on port ${port}`);
 });
 
 module.exports = app;

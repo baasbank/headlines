@@ -10,7 +10,7 @@ Articools is a web application that enables one view news from over 59 media hou
 
 * Login with Google+.
 * A wide range of sources to view news from.
-* Search for a particular sources. 
+* Search for a particular source. 
 * Choose how you want to sort your news (e.g. by Top or Latest).
 * Links to news on the source's site.
 
@@ -22,18 +22,27 @@ Or download or clone this repository and run it on your machine.
 
 * Clone this repository by running 
  * `git clone https://github.com/baasbank/headlines.git` on your terminal.
-* Make sure you have NodeJS installed.
+* If you don't have NodeJS already installed go [here](https://nodejs.org/en/) and install it.
+* Navigate into the cloned project directory.
 * Install all project dependencies by running `npm install`.
 * Run `node server.js` to start the application.
 
 ## Technologies
 
-* [es6(ECMAScript 2015):](https://en.wikipedia.org/wiki/ECMAScript) es6 is the sixth major release of the javascript language specification. It enables features like constants, arrow functions, template literals, etc.  
-* [React:](https://facebook.github.io/react/tutorial/tutorial.html) Facebook open source, efficient, javascript library for building user interfaces.  
+* [NodeJS:](https://nodejs.org/en/) is an open-source, cross-platform JavaScript run-time environment for executing JavaScript code server-side.
+
+* [es6(ECMAScript 2015):](https://en.wikipedia.org/wiki/ECMAScript) es6 is the sixth major release of the javascript language specification. It enables features like constants, arrow functions, template literals, etc.
+
+* [React:](https://facebook.github.io/react/tutorial/tutorial.html) Facebook open source, efficient, javascript library for building user interfaces. 
+
 * [ReactDOM:](https://facebook.github.io/react/docs/react-dom.html) ReactDOM is used to mount JSX elements on the DOM. It is the glue between React and the DOM.  
-* [Babel:](https://babeljs.io/) Babel is used to transpile es6 down to es5.  
+
+* [Babel:](https://babeljs.io/) Babel is used to transpile es6 down to es5. 
+
 * [Webpack:](https://webpack.github.io/docs/what-is-webpack.html) Webpack is used to bundle modules with dependencies and run mundane tasks.  
+
 * [Axios:](https://www.npmjs.com/package/axios) Axios is an http client library used in making API calls.  
+
 * [Jest:](https://facebook.github.io/jest/) Jest is used to run tests.  
 
 ## Resources
@@ -53,3 +62,8 @@ Or download or clone this repository and run it on your machine.
 
 * Users can only sign in with their google accounts.
 * Articles open only on their source website.
+
+## License
+
+* This project is authored by Baasbank Akinmuleya, and is licensed for use, distribution and modification under the ISC license.
+

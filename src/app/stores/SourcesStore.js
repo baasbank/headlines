@@ -1,6 +1,5 @@
 import { EventEmitter } from 'events';
 import Dispatcher from '../dispatcher/Dispatcher';
-// import axios from 'axios';
 
 class SourcesStore extends EventEmitter {
 /**
@@ -12,13 +11,13 @@ class SourcesStore extends EventEmitter {
     super();
 
     /**
-     * Initializing the state of sources to an empty array,
-     * binding sources, message, and the getSources function.
+     * Initializing state and binding functions.
      */
 
     this.sources = [];
-    this.message = '';
+    this.errorMessage = {};
     this.getSources = this.getSources.bind(this);
+    this.getError = this.getError.bind(this);
   }
 
   /**
@@ -30,10 +29,12 @@ class SourcesStore extends EventEmitter {
     return this.sources;
   }
 
+  getError() {
+    return this.errorMessage;
+  }
 /**
-     * the handleActions function handles the message dispatched by actions,
-     * and emits events and payload based on the type of action received.
-     * @param {object}
+     * handle dispatched actions and emit events.
+     * @param {object} action.Type - type of action
 */
 
   handleActions(action) {
@@ -42,7 +43,7 @@ class SourcesStore extends EventEmitter {
       this.emit('change');
     } else if (action.type === 'RECIEVE_SOURCES_ERROR') {
       this.message = action.message;
-      this.emit('change');
+      this.emit('error');
     }
   }
 }

@@ -3,13 +3,11 @@ import axios from 'axios';
 import Dispatcher from '../dispatcher/Dispatcher';
 
 /**
-  * This function gets news sources from news API and passes
-  * the sources to the dispatcher which dispatches the related
-  * action and the sources received.
-  * @returns {array} an array of sources.
+  * get news sources from news API and passes
+  * @returns {array} sources- an array of sources.
 */
 
-export function getSourcesfromActions() {
+export function fetchSources() {
   return axios
     .get('https://newsapi.org/v1/sources?language=en')
     .then((sources) => {
@@ -18,31 +16,29 @@ export function getSourcesfromActions() {
         sources: sources.data
       });
     })
-    .catch((message) => {
+    .catch((errorMessage) => {
       Dispatcher.dispatch({
         type: 'RECIEVE_SOURCES_ERROR',
-        message
+        errorMessage
       });
     });
 }
 
 /**
-  * This function accepts two parameters; source Id and sortBy,
-  * uses those to get news articles from news API, and passes the
-  * articles to the dispatcher.
+  * get news articles from news API.
   * @param {string} sortBy, how to sort the articles received.
   * @param {string} sourceId, the ID of the news source.
   * @returns {object} the dispatcher.
 */
 
-export function getArticlesFromActions(sourceId, sortBy) {
+export function fetchArticles(sourceId, sortBy) {
   return axios
     .get(
       `https://newsapi.org/v1/articles?source=${
         sourceId
         }&sortBy=${
         sortBy
-        }&apiKey=213327409d384371851777e7c7f78dfe`
+        }&apiKey=${process.env.API_KEY}`
     )
     .then(articles =>
       Dispatcher.dispatch({

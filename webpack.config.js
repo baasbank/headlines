@@ -1,3 +1,7 @@
+const Dotenv = require('dotenv-webpack');
+
+const webpack = require('webpack');
+
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -17,7 +21,7 @@ const config = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: ['react', 'es2015', 'stage-2'],
+          presets: ['react', 'es2015'],
         },
       },
       {
@@ -30,10 +34,21 @@ const config = {
     ],
   },
   plugins: [
+
     new HtmlWebpackPlugin({
       template: 'src/index.html'
     }),
     new ExtractTextPlugin('css/styles.css'),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production'),
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin(),
+    new Dotenv({
+      path: './.env',
+      safe: false,
+    }),
   ]
 };
 

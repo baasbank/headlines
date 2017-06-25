@@ -12,8 +12,7 @@ class ArticlesStore extends EventEmitter {
     super();
 
     /**
-     * Initializing the state of articles to an empty array,
-     * and binding the getArticles function.
+     * Initializing the state of articles to an empty array.
      */
 
     this.articles = [];
@@ -22,7 +21,7 @@ class ArticlesStore extends EventEmitter {
 
 /**
  * getArticles function
-  * @return {array} news articles.
+  * @return {array} articles-  news articles.
  */
 
   getArticles() {
@@ -30,9 +29,8 @@ class ArticlesStore extends EventEmitter {
   }
 
 /**
-     * the handleActions function handles the message dispatched by actions,
-     * and emits events and payload based on the type of action received.
-     * @param {object}
+     * handle dispatched actions and emit events.
+     * @param {object} action.Type- type of action
 */
 
   handleActions(action) {

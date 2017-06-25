@@ -9,41 +9,39 @@ import { hashHistory } from 'react-router';
  */
 
 class Login extends React.Component {
+  componentWillMount() {
+    if (localStorage.getItem('name')) {
+      hashHistory.push('/sources');
+    }
+  }
   render() {
 /**
-* This is the function that gets run if the user's authentication
-* was successful. It also stores the user's google details in local
-* storage.
-* @param {array} response
+*This stores the user's google details in local storage.
+* @param {array} response- response from google
 * Returns an object that contains the user's details from google.
 * @returns {object}
 */
     const onSuccess = (response) => {
       localStorage.authenticated = true;
       localStorage.userDetails = JSON.stringify(response.profileObj);
+      localStorage.name = JSON.stringify(response.profileObj.name);
       hashHistory.push('/sources');
     };
 
 /**
-* This is the function that gets run if the user's authentication
-* failed. It also shows an error message.
+* runs if the user's authentication failed.
 */
     const onFailure = () => {
       alert('Could not log you in. Please try again');
-      hashHistory.push('/');
     };
 
 /**
- * This assigns the google login component to a variable for
- * ease of rendering.
+ * Assign the google login component to a variable.
  * @returns react elements
  */
     const loginButton =
     <GoogleLogin
-      clientId={
-        '458845920717-hbpimm618vvmovfat64glahsbj1gjodv' +
-        '.apps.googleusercontent.com'
-      }
+      clientId = {process.env.CLIENT_ID}
       onSuccess={onSuccess}
       onFailure={onFailure}
       tag="button">Login with Google</GoogleLogin>;
@@ -53,7 +51,7 @@ class Login extends React.Component {
         <div className="intro">
           <h3>Welcome To Articools</h3>
           <h4>See news from over 70 sources from around the world</h4>
-          <p><h4>Click to log in with your google account</h4></p>
+          <h4>Click to log in with your google account</h4>
           <div><p>{loginButton}</p></div>
         </div>
       </div>
@@ -62,5 +60,4 @@ class Login extends React.Component {
 }
 
 export default Login;
-
 

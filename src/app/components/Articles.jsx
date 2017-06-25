@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-import { getArticlesFromActions } from '../actions/Actions';
+import { fetchArticles } from '../actions/Actions';
 import articlesStore from '../stores/ArticlesStore';
 
 /**
@@ -11,9 +11,9 @@ import articlesStore from '../stores/ArticlesStore';
  * @extends React.Component
  */
 
-export default class Headlines extends React.Component {
+export default class Articles extends React.Component {
   /**
-   * @constructor headlines
+   * @constructor Articles
   */
   constructor() {
     super();
@@ -30,12 +30,13 @@ export default class Headlines extends React.Component {
   }
 
 /**
- *calls the 'getArticles' method that sends the
- * articles to the component.
+ *calls the 'getArticles' method that sends the articles to the component.
+ * @param {string} article - news source id
+ * @param {string} sortBy - news sortBy method
  */
 
   componentDidMount() {
-    getArticlesFromActions(
+    fetchArticles(
       this.props.routeParams.article,
       this.props.routeParams.sortBy
     );
@@ -43,6 +44,9 @@ export default class Headlines extends React.Component {
     articlesStore.on('change', this.recieveArticles);
   }
 
+/**
+ * preventing memory leaks
+ */
   componentWillUnmount() {
     articlesStore.removeListener('change', this.recieveArticles);
   }
@@ -60,8 +64,10 @@ export default class Headlines extends React.Component {
     const sortBy = this.props.routeParams.sortBy;
     return (
       <div>
-        <div id="arthead">
-        <p className="highlight"><strong>{sortBy} news from {source}</strong></p>
+        <div className="arthead">
+          <p className="highlight">
+            <strong>{sortBy} news from {source}</strong>
+          </p>
         </div>
           {articlesList.map(article => (
             <div className="col-md-3 same-height" key={article.url}>
@@ -80,7 +86,7 @@ export default class Headlines extends React.Component {
   }
 }
 
-Headlines.PropTypes = {
+Articles.PropTypes = {
   routeParams: PropTypes.object,
   article: PropTypes.string,
   sortBy: PropTypes.string

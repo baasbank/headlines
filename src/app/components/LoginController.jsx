@@ -3,12 +3,11 @@ import { Link, hashHistory } from 'react-router';
 import PropTypes from 'prop-types';
 
 /**
-* This component shows the navigation bar at the top of
-* the app.
+* This component shows the navigation bar at the top of the app.
 * @class LoginCtrl
 * @extends React.Component
 */
-class LoginCtrl extends React.Component {
+class LoginController extends React.Component {
   constructor() {
     super();
     this.handleLogout = this.handleLogout.bind(this);
@@ -17,17 +16,18 @@ class LoginCtrl extends React.Component {
   /**
   * This method is called when a user clicks on the logout button.
   * @method handleLogoutClick
-  * @memberOf Header
+  * @memberOf LoginController
   */
   handleLogout() {
     localStorage.removeItem('authenticated');
     localStorage.removeItem('userDetails');
+    localStorage.removeItem('name');
     hashHistory.push('/');
   }
 
   render() {
     /**
-    * @param {object} 
+    * @param {function} props- handle logout
     * @returns react elements
     */
     function LogOutButton(props) {
@@ -45,6 +45,7 @@ class LoginCtrl extends React.Component {
      */
     let button = null;
     let sourcesLink = null;
+    const userName = JSON.parse(localStorage.getItem('name'));
     const userIsLoggedIn = localStorage.getItem('authenticated');
     if (userIsLoggedIn) {
       button = <LogOutButton onClick={this.handleLogout} />;
@@ -64,6 +65,7 @@ class LoginCtrl extends React.Component {
             </li>
           </ul>
           <ul className="nav navbar-nav navbar-right navbar-btn">
+            <li className="username">{ userName }</li>
             <li>{button}</li>
 
           </ul>
@@ -73,8 +75,8 @@ class LoginCtrl extends React.Component {
   }
 }
 
-LoginCtrl.PropTypes = {
+LoginController.PropTypes = {
   LogOutButton: PropTypes.func
 };
 
-export default LoginCtrl;
+export default LoginController;

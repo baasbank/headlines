@@ -1,11 +1,10 @@
 import React from 'react';
 
-import { getSourcesfromActions } from '../actions/Actions';
+import { fetchSources } from '../actions/Actions';
 import sourcesStore from '../stores/SourcesStore';
 
 /**
- * Class for the sources component on which the
- * news sources are rendered.
+ * Class for the sources component on which the news sources are rendered.
  * @class Sources
  * @extends React.Component
  */
@@ -41,7 +40,7 @@ class Sources extends React.Component {
 */
 
   componentDidMount() {
-    getSourcesfromActions();
+    fetchSources();
     sourcesStore.on('change', this.recieveSources);
     sourcesStore.on('error', this.recieveError);
   }
@@ -69,7 +68,7 @@ class Sources extends React.Component {
 
 /**
  * Search for news sources.
- * @param {string}
+ * @param {string} searchTerm - source to search for
 */
   updateSearch(event) {
     this.setState({ search: event.target.value.substr(0, 10) });
@@ -92,10 +91,10 @@ class Sources extends React.Component {
              <p> Check your internet connection and refresh this page. </p>
              </div> :
            <div className="container">
-           <h3 id="selectnews">Select A News Source</h3>
+           <h3 className="selectnews">Select A News Source</h3>
         <div className="row">
           <div className="col">
-            <input type="text" className="form-control searchSource"
+            <input type="text" className="form-control search-source"
             placeholder="Search for a source" value={this.state.search} 
             onChange={this.updateSearch.bind(this)}/>
           </div>
@@ -105,7 +104,7 @@ class Sources extends React.Component {
             {
               filteredSources.map(source =>
                 (
-                  <div id="" className="row" key={source.id}>
+                  <div className="row" key={source.id}>
                     <div className="col-sm-7">
                       <p><strong>{source.name}</strong></p>
                       <p>{source.description}</p>

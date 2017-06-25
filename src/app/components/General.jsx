@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import LoginCtrl from './LoginCtrl.jsx';
+import LoginController from './LoginController.jsx';
 
 
 /**
- * Class for the general component on which
- * every other component is rendered.
+ * component on which every other component is rendered.
  * @class General
  * @extends React Component
  */
@@ -15,7 +14,7 @@ class General extends React.Component {
     return (
       <div className="container-fullwidth">
         <div>
-          <LoginCtrl />
+          <LoginController />
         </div>
         <div>
           {this.props.children}
