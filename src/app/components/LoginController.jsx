@@ -45,7 +45,7 @@ class LoginController extends React.Component {
      */
     let button = null;
     let sourcesLink = null;
-    const userName = (localStorage.getItem('name'));
+    const userName = JSON.parse(localStorage.getItem('name'));
     const userIsLoggedIn = localStorage.getItem('authenticated');
     if (userIsLoggedIn) {
       button = <LogOutButton onClick={this.handleLogout} />;
