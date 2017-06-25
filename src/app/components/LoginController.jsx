@@ -45,6 +45,7 @@ class LoginController extends React.Component {
      */
     let button = null;
     let sourcesLink = null;
+    const userName = (localStorage.getItem('name'));
     const userIsLoggedIn = localStorage.getItem('authenticated');
     if (userIsLoggedIn) {
       button = <LogOutButton onClick={this.handleLogout} />;
@@ -64,6 +65,7 @@ class LoginController extends React.Component {
             </li>
           </ul>
           <ul className="nav navbar-nav navbar-right navbar-btn">
+            <li className="username">{ userName }</li>
             <li>{button}</li>
 
           </ul>
