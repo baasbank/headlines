@@ -18,14 +18,16 @@ Articools is a web application that enables one view news from over 59 media hou
 Click [here](https://articools.herokuapp.com) to access the application.
 Or download or clone this repository and run it on your machine.
 
-## For local installation:
+## For local installation & testing:
 
 * Clone this repository by running 
  * `git clone https://github.com/baasbank/headlines.git` on your terminal.
 * If you don't have NodeJS already installed go [here](https://nodejs.org/en/) and install it.
 * Navigate into the cloned project directory.
-* Install all project dependencies by running `npm install`.
-* Run `node server.js` to start the application.
+ * For example, if you cloned the project into the desktop directory, then run `cd desktop` which takes you into the desktop, then `cd headlines` to enter the project directory.
+* Once in the project directory, install all project dependencies by running `npm install`.
+* Run the command `npm start` to start the application.
+* To run tests, run the command `npm test`.
 
 ## Technologies
 
@@ -51,10 +53,19 @@ Or download or clone this repository and run it on your machine.
 
 ## Contributing
 
-* Fork this repository.
-* Clone it.
-* Create your feature branch on your local machine.
-* Push your changes to your remote branch.
+* Fork this repository by clicking the `Fork` menu item in the top right corner of this repository.
+* Go to your github account, and under your repository list, you should find this project listed.
+* Open the project, click on the `clone or download` button, then copy the url that pops up.
+* Open your terminal and run the command `git clone url` where `url` is the url from the previous step.
+* Navigate into the cloned project directory.
+ * For example, if you cloned the project into the desktop directory, then run `cd desktop` which takes you into the desktop, then `cd headlines` to enter the project directory.
+* Once in the project directory, install all project dependencies by running `npm install`.
+* Create your feature branch on your local machine by running `git checkout -b branchName`, where `branchName` is the name of your feature branch.
+* Make your changes.
+* Add your changes by running `git add filePath`, where `filePath` is path of the file(s) in which the 
+change(s) were made.
+* Commit your changes by running `git commit -m "commit message"`, where `commit message` is your commit message.
+* Push your changes to your remote branch by running `git push origin branchName`.
 * Open a pull request to the master branch.
 
 

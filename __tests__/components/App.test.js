@@ -1,12 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
-import General from '../../src/app/components/General';
+import App from '../../src/app/components/App';
 
 import localStorageMock from '../../mocks/localStorageMock';
 
 window.localStorage = localStorageMock;
 
-describe('General', () => {
+describe('App', () => {
   beforeEach(() => {
     window.localStorage.setItem('userDetails', JSON.stringify({
       givenName: 'Baasbank',
@@ -15,6 +15,6 @@ describe('General', () => {
   });
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    render(<General/>, div);
+    render(<App/>, div);
   });
 });
