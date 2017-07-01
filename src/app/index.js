@@ -4,7 +4,7 @@ import { render } from 'react-dom';
 import { Router, Route, hashHistory } from 'react-router';
 
 import Sources from './components/Sources.jsx';
-import General from './components/General.jsx';
+import App from './components/App.jsx';
 import Articles from './components/Articles.jsx';
 import Login from './components/Login.jsx';
 import PageNotFound from './components/PageNotFound.jsx';
@@ -29,10 +29,10 @@ const requireAuth = (nextState, replace) => {
 * @returns routes.
 */
 
-const App = () => (
+const Index = () => (
     <div>
         <Router history={hashHistory}>
-          <Route component={General}>
+          <Route component={App}>
             <Route path="/articles/:article/:sortBy" component={Articles} onEnter={requireAuth}/>
             <Route path="/sources" component={Sources} onEnter={requireAuth}/>
             <Route path="/" component={Login}/>
@@ -42,4 +42,4 @@ const App = () => (
   </div>
   );
 
-render(<App />, document.getElementById('app'));
+render(<Index />, document.getElementById('app'));
