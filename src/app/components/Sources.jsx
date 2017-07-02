@@ -16,8 +16,8 @@ class Sources extends React.Component {
   */
 
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     /**
      * Initializing state of sources to an empty array,
@@ -35,8 +35,11 @@ class Sources extends React.Component {
   }
 
 /**
-*calls the 'getSources' method that sends the
+* @description calls the 'getSources' method that sends the
 * sources to the component.
+* @method
+* @memberOf Sources
+* @returns {void}
 */
 
   componentDidMount() {
@@ -46,7 +49,10 @@ class Sources extends React.Component {
   }
 
 /**
- * preventing  memory leaks.
+  * @description prevent memory leaks when this component unmounts.
+  * @method
+  * @memberOf Sources
+  * @returns {void}
  */
 
   componentWillUnmount() {
@@ -54,11 +60,25 @@ class Sources extends React.Component {
     sourcesStore.removeListener('error', this.recieveError);
   }
 
+/**
+   * @description sets sources state.
+   * @method
+   * @memberOf Sources
+   * @returns {void}
+   */
+
   recieveSources() {
     this.setState({
       sources: sourcesStore.getSources()
     });
   }
+
+/**
+   * @description sets error state.
+   * @method
+   * @memberOf Sources
+   * @returns {void}
+   */
 
   recieveError() {
     this.setState({

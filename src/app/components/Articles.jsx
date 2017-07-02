@@ -15,12 +15,12 @@ export default class Articles extends React.Component {
   /**
    * @constructor Articles
   */
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     /**
-     * Initializing state of articles to
-     * an empty array.
+     * @description Initializing state of articles to an empty array.
+     * @returns {void}
      */
 
     this.state = {
@@ -29,11 +29,12 @@ export default class Articles extends React.Component {
     this.recieveArticles = this.recieveArticles.bind(this);
   }
 
-/**
- *calls the 'getArticles' method that sends the articles to the component.
- * @param {string} article - news source id
- * @param {string} sortBy - news sortBy method
- */
+ /**
+   * @description call the fetchArticles function when component mounts
+   * @method
+   * @memberOf Articles
+   * @returns {void}
+   */
 
   componentDidMount() {
     fetchArticles(
@@ -45,11 +46,22 @@ export default class Articles extends React.Component {
   }
 
 /**
- * preventing memory leaks
+   * @description preventing memory leaks when this component unmounts
+   * @method
+   * @memberOf Articles
+   * @returns {void}
  */
+
   componentWillUnmount() {
     articlesStore.removeListener('change', this.recieveArticles);
   }
+
+/**
+   * @description sets the state for articles
+   * @method
+   * @memberOf Articles
+   * @returns {void}
+   */
 
   recieveArticles() {
     this.setState({

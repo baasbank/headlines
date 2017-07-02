@@ -23,7 +23,7 @@ describe('Sources Store', () => {
     afterEach(() => {
       sourcesStore.handleActions({ type: 'RECIEVE_SOURCES', sources: {} });
     });
-    it('should be an empty object initially', () => {
+    it('should be an empty array initially', () => {
       expect(sourcesStore.getSources()).toEqual([]);
     });
 

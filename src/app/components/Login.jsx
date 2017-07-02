@@ -16,10 +16,9 @@ class Login extends React.Component {
   }
   render() {
 /**
-*This stores the user's google details in local storage.
+* @description This stores the user's google details in local storage.
 * @param {array} response- response from google
-* Returns an object that contains the user's details from google.
-* @returns {object}
+* @returns {void}
 */
     const onSuccess = (response) => {
       localStorage.authenticated = true;
@@ -29,14 +28,15 @@ class Login extends React.Component {
     };
 
 /**
-* runs if the user's authentication failed.
+* @description this function runs if the user's authentication failed.
+* @method 
 */
     const onFailure = () => {
       alert('Could not log you in. Please try again');
     };
 
 /**
- * Assign the google login component to a variable.
+ * @description Assign the google login component to a variable.
  * @returns react elements
  */
     const loginButton =
