@@ -26,7 +26,7 @@ describe('Articles Store', () => {
       articlesStore.handleActions({ type: 'RECEIVE_ARTICLES', articles: {} });
     });
 
-    it('should be an empty object initially', () => {
+    it('should be an empty array initially', () => {
       expect(articlesStore.getArticles()).toEqual([]);
     });
 

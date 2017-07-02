@@ -4,7 +4,7 @@ import Dispatcher from '../dispatcher/Dispatcher';
 
 /**
   * get news sources from news API and passes
-  * @returns {array} sources- an array of sources.
+  * @returns {array} sources - an array of objects.
 */
 
 export function fetchSources() {

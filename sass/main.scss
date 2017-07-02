@@ -1,5 +1,5 @@
 $black: #000000;
-$green: #4CAF50;
+$green: #4caf50;
 $lightblue: #add8e6;
 $primary-color: #0d47a1;
 $red: #ff0000;
@@ -8,8 +8,8 @@ $white: #ffffff;
 
 
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -38,7 +38,7 @@ $white: #ffffff;
 .sourceblock {
   border-bottom: 1px solid $lightblue;
   display: inline-block;
-  margin: 0px 15px 20px 150px;
+  margin: 0 15px 20px 150px;
   text-align: center;
   width: 70%;
   }
@@ -52,27 +52,17 @@ $white: #ffffff;
   display: inline-block !important;
   width: 30%;
 }
+
 .buttonnormal {
-    background-color: $primary-color;
-    border-radius: 3px;
-    border: 0px;
-    color: $white;
-    font-size: 14px;
-    list-style: none;
-    padding: 2px;
-    transition-duration: 0.4s;
-    -webkit-transition-duration: 0.4s;
-    }
-
-.buttonnormal a {
-  color: white;
-  text-decoration: none;
-}
-
-.buttonnormal a:hover {
-    background-color: $green; 
-    color: $white;
-}
+  background-color: $primary-color;
+  border-radius: 3px;
+  border: 0;
+  color: $white;
+  font-size: 14px;
+  list-style: none;
+  padding: 2px;
+  transition-duration: 0.4s;
+  }
 
 .thumbnail img {
   max-height: 147px;
@@ -81,8 +71,10 @@ $white: #ffffff;
 .sort-by {
   display: inline-block;
   overflow: auto;
+  
   li {
     display: inline;
+
     a {
       background: $red;
       border-radius: 3px;
