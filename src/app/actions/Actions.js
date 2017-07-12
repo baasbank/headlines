@@ -7,8 +7,8 @@ import Dispatcher from '../dispatcher/Dispatcher';
   * @returns {array} sources - an array of objects.
 */
 
-export const fetchSources = () => {
-  axios
+export function fetchSources() {
+  return axios
     .get('https://newsapi.org/v1/sources?language=en')
     .then((sources) => {
       Dispatcher.dispatch({
@@ -22,7 +22,7 @@ export const fetchSources = () => {
         errorMessage
       });
     });
-};
+}
 /**
   * get news articles from news API.
   * @param {string} sortBy, how to sort the articles received.
@@ -30,8 +30,8 @@ export const fetchSources = () => {
   * @returns {object} the dispatcher.
 */
 
-export const fetchArticles = (sourceId, sortBy) => {
-  axios
+export function fetchArticles(sourceId, sortBy) {
+  return axios
     .get(
       `https://newsapi.org/v1/articles?source=${
         sourceId
@@ -51,4 +51,4 @@ export const fetchArticles = (sourceId, sortBy) => {
         message
       });
     });
-};
+}
