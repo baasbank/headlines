@@ -8,7 +8,7 @@ import Dispatcher from '../dispatcher/Dispatcher';
 */
 
 export const fetchSources = () => {
-  return axios
+  axios
     .get('https://newsapi.org/v1/sources?language=en')
     .then((sources) => {
       Dispatcher.dispatch({
@@ -22,7 +22,6 @@ export const fetchSources = () => {
         errorMessage
       });
     });
-}
 
 /**
   * get news articles from news API.
