@@ -12,6 +12,8 @@ describe('Login', () => {
       givenName: 'Baasbank',
       imageUrl: 'me',
     }));
+    window.localStorage.setItem('authenticated', true);
+    window.localStorage.setItem('name', 'Baasbank Akinmuleya');
   });
   
   it('renders without crashing', () => {
@@ -22,5 +24,4 @@ describe('Login', () => {
   it('should render to static HTML', function() {
     expect(render(<Login />).text()).toEqual('Welcome To ArticoolsSee news from over 70 sources from around the worldClick to log in with your google accountLogin with Google');
   });
-
 });

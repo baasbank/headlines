@@ -23,7 +23,6 @@ export function fetchSources() {
       });
     });
 }
-
 /**
   * get news articles from news API.
   * @param {string} sortBy, how to sort the articles received.
@@ -53,4 +52,3 @@ export function fetchArticles(sourceId, sortBy) {
       });
     });
 }
-

@@ -24,7 +24,6 @@ describe('Actions', () => {
   describe('Test for sources action', () => {
     describe('Test for axios', () => {
       const mockdata = mockData.data;
-
       it('should call axios', () => {
         fetchSources();
         const sourceChange = (() => {
@@ -48,7 +47,7 @@ describe('Actions', () => {
 
   describe('Test for articles action', () => {
     describe('Test for axios', () => {
-      it('should call axios', () => {
+      it('should call axios with parameters', () => {
         fetchArticles('cnn', 'latest').then((data) => {
           expect(axiosMock.calledOnce).toBeTruthy();
         });

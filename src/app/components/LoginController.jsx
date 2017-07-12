@@ -48,7 +48,7 @@ class LoginController extends React.Component {
     const userName = JSON.parse(localStorage.getItem('name'));
     const userIsLoggedIn = localStorage.getItem('authenticated');
     if (userIsLoggedIn) {
-      button = <LogOutButton onClick={this.handleLogout} />;
+      button = <LogOutButton className='logout-Button' onClick={this.handleLogout} />;
       sourcesLink = <Link className="header" to="Sources">News Sources </Link>;
     }
 
