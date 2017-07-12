@@ -7,7 +7,7 @@ import Dispatcher from '../dispatcher/Dispatcher';
   * @returns {array} sources - an array of objects.
 */
 
-export function fetchSources() {
+export const fetchSources = () => {
   return axios
     .get('https://newsapi.org/v1/sources?language=en')
     .then((sources) => {

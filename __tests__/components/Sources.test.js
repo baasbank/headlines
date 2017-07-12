@@ -2,7 +2,7 @@ import React from 'react';
 import sinon from 'sinon';
 import { shallow, mount , render } from 'enzyme';
 import Sources from '../../src/app/components/Sources';
-import { fetchSources } from '../../src/app/actions/Actions';
+import * as NewsAction from '../../src/app/actions/Actions';
 import sourcesStore from '../../src/app/stores/SourcesStore';
 
 describe('Sources', () => {
@@ -31,45 +31,53 @@ describe('Sources', () => {
     ]
   }
 
+  const container = mount(<Sources {...props}/>);
 
-  const container = shallow(<Sources {...props}/>);
-  
-  it('renders without crashing', () => {
-    mount(<Sources/>);
-  });
+  describe('sources state', ()=> {
+    it('should initialize with an empty search string', () => {
+      expect(container.state().search).toBe('');
+    });
 
-  it('Should have an initial state for search string', () => {
-    expect(container.state().search).toBe('');
-  });
-
-  it('Should have a div that renders JSX on the DOM', () => {
-    expect(container.find('.container')).toBeTruthy();
-  });
-
-  it('it initializes with an empty string for errors', () => {
+    it('should initialize with no errors', () => {
     expect(container.state().error).toBe('');
   });
+});
 
-  it('should check for methods', () => {
-    expect(container.instance().recieveSources).toBeDefined();
-    expect(container.instance().updateSearch).toBeDefined();
-    expect(container.instance().recieveError).toBeDefined();
-  });
-  
-  it('input search', () => {
-    const updateSearch = jest.fn();
-    updateSearch.call()
-    const search = mount(<Sources updateSearch={updateSearch} {...props}/>);
-    const input = search.find('input');
-    input.simulate('change', { target: { value: ''} });
-    expect(updateSearch).toBeCalledWith();
+  describe('on component mount', () => {
+    it('should have a div that renders JSX on the DOM', () => {
+      expect(container.find('.container')).toBeTruthy();
+    });
+
+    it('should have these methods', () => {
+      expect(container.instance().recieveSources).toBeDefined();
+      expect(container.instance().updateSearch).toBeDefined();
+      expect(container.instance().recieveError).toBeDefined();
+    });
+});
+
+  describe('#updateSearch', () => {
+    it('should run when its state changes', () => {
+      const updateSearch = jest.fn();
+      updateSearch.call()
+      const search = mount(<Sources updateSearch={updateSearch} {...props}/>);
+      const input = search.find('input');
+      input.simulate('change', { target: { value: ''} });
+      expect(updateSearch).toHaveBeenCalled();
+    });
   });
 
-  it('calls componentDidMount() lifecycle method', () => {
-    const componentDidMountSpy = jest.spyOn(Sources.prototype, 'componentDidMount');
-    const sourcesStoreSpy = jest.spyOn(sourcesStore, 'on');
-    const container = mount(<Sources {...props}/>);
-    expect(componentDidMountSpy).toHaveBeenCalled();
-    expect(sourcesStoreSpy).toHaveBeenCalled();
+  describe("#componentDidMount", ()=> {
+    it('should run', () => {
+      const spy = sinon.spy(Sources.prototype, 'componentDidMount');
+      const wrapper = mount(<Sources {...props}/>);
+      expect(spy.called).toBeTruthy();
+    });
+
+    it('should call the fetchSources() function', () => {
+      const fetchSourcesSpy = sinon.spy(NewsAction, 'fetchSources');
+      mount(<Sources {...props}/>);
+      expect(fetchSourcesSpy.called).toBeTruthy();
+    });
   });
 });
+
