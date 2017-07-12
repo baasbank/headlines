@@ -22,7 +22,7 @@ export const fetchSources = () => {
         errorMessage
       });
     });
-
+};
 /**
   * get news articles from news API.
   * @param {string} sortBy, how to sort the articles received.
@@ -30,8 +30,8 @@ export const fetchSources = () => {
   * @returns {object} the dispatcher.
 */
 
-export function fetchArticles(sourceId, sortBy) {
-  return axios
+export const fetchArticles = (sourceId, sortBy) => {
+  axios
     .get(
       `https://newsapi.org/v1/articles?source=${
         sourceId
@@ -51,5 +51,4 @@ export function fetchArticles(sourceId, sortBy) {
         message
       });
     });
-}
-
+};
